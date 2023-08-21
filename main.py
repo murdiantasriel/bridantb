@@ -76,7 +76,7 @@ def main():
             result_df = pd.concat([input_data, pd.DataFrame(normalized_data)], axis=1)
             result_df = result_df.loc[:,~result_df.columns.duplicated()]
 
-            csv = result_df.to_csv(index=False)
+            csv = pd.DataFrame(normalized_data).to_csv(index=False)
             st.download_button(
                 label="Download Hasil Normalisasi",
                 data=csv,
